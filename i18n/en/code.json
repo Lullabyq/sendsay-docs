@@ -162,8 +162,8 @@
     "message": "Direct link to heading",
     "description": "Title for link to heading"
   },
-  "theme.lastUpdated.atDate": {
-    "message": "Updated:",
+  "lastUpdated.atDate": {
+    "message": "Updated: ",
     "description": "The words used to describe on which date a page has been last updated"
   },
   "theme.lastUpdated.byUser": {
