@@ -1,7 +1,11 @@
 {
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
+    "jsx": "react",
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "react": ["./node_modules/@types/react"]
+    }
   }
 }
