@@ -41,6 +41,7 @@ export const RecentlyUpdatedArticlesIframe = () => {
       ref={iframeRef}
       src={RECENT_ARTICLES_TEMP_URL}
       name="latest-articles"
+      title="latest-articles"
       className="w-full"
       style={{
         border: 'none',
@@ -49,7 +50,7 @@ export const RecentlyUpdatedArticlesIframe = () => {
       }}
       onLoad={resizeIframe}
       scrolling="no"
-      seamless={true}
+      seamless
     />
   );
 };

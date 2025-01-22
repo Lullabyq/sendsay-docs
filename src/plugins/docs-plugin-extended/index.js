@@ -1,11 +1,9 @@
-const docsPluginExports = require('@docusaurus/plugin-content-docs');
-const { getRecentlyUpdatedArticles } = require('./getRecentArticles');
-const { RECENT_ARTICLES_TEMP_URL } = require('../../components/RecentlyUpdatedArticles/constants');
-
-const defaultDocsPlugin = docsPluginExports.default;
+import docsPluginExports from '@docusaurus/plugin-content-docs';
+import { getRecentlyUpdatedArticles } from './getRecentArticles';
+import { RECENT_ARTICLES_TEMP_URL } from '../../components/RecentlyUpdatedArticles/constants';
 
 const docsPluginEnhanced = async (...pluginArgs) => {
-  const docsPluginInstance = await defaultDocsPlugin(...pluginArgs);
+  const docsPluginInstance = await docsPluginExports(...pluginArgs);
 
   return {
     ...docsPluginInstance,
@@ -35,7 +33,5 @@ const docsPluginEnhanced = async (...pluginArgs) => {
   };
 };
 
-module.exports = {
-  ...docsPluginExports,
-  default: docsPluginEnhanced,
-};
+export * from '@docusaurus/plugin-content-docs';
+export default docsPluginEnhanced;
