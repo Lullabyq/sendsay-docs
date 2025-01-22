@@ -2,11 +2,10 @@
 sidebar_position: 1
 sidebar_label: 'Как создать учётную запись'
 recent_article:
-  status: update
   theses:
-    - Keisgfsgd
-    - Lorem
-    - fgdgsfgasfgafga asdfadfasdf
+    - Пример
+    - Изменения
+    - 24 правки текста
 ---
 
 # Как создать учётную запись для нового пользователя

@@ -3,13 +3,9 @@ import Layout from '@theme/Layout';
 import { CustomLastUpdate } from '../CustomLastUpdate';
 import { CustomLastUpdateType } from '../CustomLastUpdate/CustomLastUpdate';
 import { RECENT_ARTICLES_CONTENT_ID } from './constants.js';
+import { truncateString } from './utils/truncateString';
 
 const NBSP = '\u00A0';
-
-const ArticleStatus = {
-  New: 'new',
-  Updated: 'updated',
-};
 
 const RecentlyUpdatedArticlesCard = ({ children, slug }) => {
   const handleClick = () => {
@@ -49,7 +45,7 @@ const RecentlyUpdatedArticlesChanges = ({ frontMatter }) => {
 const RecentlyUpdatedArticles = ({ recentArticles }) => (
   <Layout>
     <div className="flex flex-col gap-4" id={RECENT_ARTICLES_CONTENT_ID}>
-      {recentArticles.map(({ title, lastUpdatedAt, frontMatter, slug }) => (
+      {recentArticles.map(({ title, lastUpdatedAt, frontMatter, slug, description }) => (
         <RecentlyUpdatedArticlesCard key={slug} slug={slug}>
           <div className="flex flex-col gap-2">
             <h5 className="text-gray-800 text-base font-medium m-0 group-hover:text-blue-600">
@@ -59,7 +55,7 @@ const RecentlyUpdatedArticles = ({ recentArticles }) => (
             <CustomLastUpdate
               lastUpdatedAt={lastUpdatedAt}
               type={
-                frontMatter.recent_article?.status === ArticleStatus.New
+                frontMatter.recent_article?.new
                   ? CustomLastUpdateType.CreationDate
                   : CustomLastUpdateType.UpdateDate
               }
@@ -67,6 +63,10 @@ const RecentlyUpdatedArticles = ({ recentArticles }) => (
           </div>
 
           <RecentlyUpdatedArticlesChanges frontMatter={frontMatter} />
+
+          {description && frontMatter.recent_article?.new && (
+            <span className="text-gray-800 text-sm">{truncateString(description, 180)}</span>
+          )}
         </RecentlyUpdatedArticlesCard>
       ))}
     </div>

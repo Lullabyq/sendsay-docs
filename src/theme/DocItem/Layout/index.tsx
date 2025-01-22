@@ -44,8 +44,6 @@ const DocItemLayout = ({ children }: Props): JSX.Element => {
   const docTOC = useDocTOC();
   const { metadata } = useDoc();
 
-  console.log('!!metadata', metadata);
-
   return (
     <div className="row">
       <div className={clsx('col', !docTOC.hidden && styles.docItemCol)}>

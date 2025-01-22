@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
-import { RECENT_ARTICLES_CONTENT_ID, RECENT_ARTICLES_TEMP_URL } from './constants.js';
 import { useHistory } from '@docusaurus/router';
+import { RECENT_ARTICLES_CONTENT_ID, RECENT_ARTICLES_TEMP_URL } from './constants.js';
+
+const DEFAULT_IFRAME_HEIGHT = '650px';
 
 export const RecentlyUpdatedArticlesIframe = () => {
   const history = useHistory();
@@ -16,16 +18,14 @@ export const RecentlyUpdatedArticlesIframe = () => {
 
   const resizeIframe = () => {
     if (!iframeRef.current) {
+      setIsError(true);
+
       return;
     }
 
     const recentArticleContentElement = iframeRef.current.contentWindow.document.getElementById(
       RECENT_ARTICLES_CONTENT_ID
     );
-
-    if (!recentArticleContentElement) {
-      setIsError(true);
-    }
 
     iframeRef.current.style.height = `${recentArticleContentElement?.scrollHeight}px`;
 
@@ -45,10 +45,11 @@ export const RecentlyUpdatedArticlesIframe = () => {
       style={{
         border: 'none',
         outline: 'none',
+        height: DEFAULT_IFRAME_HEIGHT,
       }}
       onLoad={resizeIframe}
       scrolling="no"
-      seamless="seamless"
+      seamless={true}
     />
   );
 };

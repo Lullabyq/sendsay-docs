@@ -14,7 +14,7 @@ export const enum CustomLastUpdateType {
 interface CustomLastUpdateProps {
   lastUpdatedAt: number;
   type: CustomLastUpdateType;
-  frontMatter?: {
+  frontMatter: {
     recent_article?: {
       ignore: boolean;
     };

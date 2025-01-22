@@ -4,7 +4,6 @@ const yandexMetricaCounter = process.env.YANDEX_METRICA_COUNTER_ID;
 const plugins = [
   './src/plugins/iframe-detected',
   './src/plugins/tailwind',
-  './src/plugins/webpackConfig',
   [
     './src/plugins/docs-plugin-extended',
     {
