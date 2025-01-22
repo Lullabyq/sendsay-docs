@@ -42,13 +42,8 @@ const config: Config = {
         googleTagManager: {
           containerId: baseGTM,
         },
-        docs: {
-          routeBasePath: '/',
-          sidebarPath: require.resolve('./sidebars.js'),
-          showLastUpdateTime: true,
-          editUrl: ({ docPath }) =>
-            `https://github.com/sendsay-ru/sendsay-docs/edit/stable/docs/${docPath}`,
-        },
+        // we use extended version to get recently updated articles
+        docs: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },

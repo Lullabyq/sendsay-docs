@@ -4,6 +4,17 @@ const yandexMetricaCounter = process.env.YANDEX_METRICA_COUNTER_ID;
 const plugins = [
   './src/plugins/iframe-detected',
   './src/plugins/tailwind',
+  './src/plugins/webpackConfig',
+  [
+    './src/plugins/docs-plugin-extended',
+    {
+      routeBasePath: '/',
+      sidebarPath: require.resolve('./sidebars.js'),
+      showLastUpdateTime: true,
+      editUrl: ({ docPath }) =>
+        `https://github.com/sendsay-ru/sendsay-docs/edit/stable/docs/${docPath}`,
+    },
+  ],
   [
     'docusaurus-lunr-search',
     {

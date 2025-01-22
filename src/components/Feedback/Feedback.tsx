@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import { translate } from '@docusaurus/Translate';
-import { useDoc } from '@docusaurus/theme-common/internal';
+import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import { PositiveFeedbackIcon, NegativeFeedbackIcon } from '../../ui/icons';
 import { pushAnalytics } from '../../utils/analytics';
 
