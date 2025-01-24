@@ -12,9 +12,9 @@ import DocItemContent from '@theme/DocItem/Content';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import ContentVisibility from '@theme/ContentVisibility';
 import type { Props } from '@theme/DocItem/Layout';
+import { CustomLastUpdate, CustomLastUpdateType } from '../../../components/CustomLastUpdate';
 
 import styles from './styles.module.css';
-import { CustomLastUpdate } from '../../../components/CustomLastUpdate';
 
 /**
  * Decide if the toc should be rendered, on mobile or desktop viewports
@@ -59,6 +59,7 @@ const DocItemLayout = ({ children }: Props): JSX.Element => {
             <CustomLastUpdate
               lastUpdatedAt={metadata.lastUpdatedAt}
               frontMatter={metadata.frontMatter}
+              type={CustomLastUpdateType.Tag}
             />
 
             {docTOC.mobile}

@@ -57,11 +57,8 @@ const RecentlyUpdatedArticles = ({ recentArticles }) => (
 
             <CustomLastUpdate
               lastUpdatedAt={lastUpdatedAt}
-              type={
-                frontMatter.recent_article?.new
-                  ? CustomLastUpdateType.CreationDate
-                  : CustomLastUpdateType.UpdateDate
-              }
+              frontMatter={frontMatter}
+              type={CustomLastUpdateType.Text}
             />
           </div>
 

@@ -1,1 +1,1 @@
-export { CustomLastUpdate } from './CustomLastUpdate';
+export { CustomLastUpdate, CustomLastUpdateType } from './CustomLastUpdate';

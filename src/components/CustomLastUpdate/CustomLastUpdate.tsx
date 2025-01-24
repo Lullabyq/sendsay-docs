@@ -7,8 +7,7 @@ const NBSP = '\u00A0';
 
 export const enum CustomLastUpdateType {
   Tag = 'tag',
-  UpdateDate = 'updateDate',
-  CreationDate = 'creationDate',
+  Text = 'text',
 }
 
 interface CustomLastUpdateProps {
@@ -17,6 +16,7 @@ interface CustomLastUpdateProps {
   frontMatter: {
     recent_article?: {
       ignore: boolean;
+      new: boolean;
     };
   };
 }
@@ -37,22 +37,31 @@ export const CustomLastUpdate = ({
     return null;
   }
 
+  const isNewArticle = frontMatter.recent_article?.new;
+
+  const isNewTag = type === CustomLastUpdateType.Tag && isNewArticle;
+  const isUpdateTag = type === CustomLastUpdateType.Tag && !isNewArticle;
+  const isNewText = type === CustomLastUpdateType.Text && isNewArticle;
+  const isUpdateText = type === CustomLastUpdateType.Text && !isNewArticle;
+
   return (
     <div
       className={clsx('rounded-sm px-1.5 py-0.5 text-xs font-normal w-fit', {
-        'text-blue-500 bg-blue-50 mb-3': type === CustomLastUpdateType.Tag,
-        'text-gray-800 italic':
-          type === CustomLastUpdateType.UpdateDate || type === CustomLastUpdateType.CreationDate,
+        'mb-3': type === CustomLastUpdateType.Tag,
+        'text-gray-800 italic': type === CustomLastUpdateType.Text,
+        'text-emerald-700 bg-green-100': isNewTag,
+        'text-blue-500 bg-blue-50': isUpdateTag,
       })}
     >
       <div className="flex flex-row">
         <div className="flex gap-1.5 items-center">
-          {type === CustomLastUpdateType.UpdateDate && <UpdateMark />}
-          {type === CustomLastUpdateType.CreationDate && <NewMark />}
+          {isUpdateText && <UpdateMark />}
+          {isNewText && <NewMark />}
 
-          {type === CustomLastUpdateType.CreationDate
+          {isNewArticle
             ? translate({ id: 'lastUpdated.createDate', message: 'Опубликовано:' })
             : translate({ id: 'lastUpdated.atDate', message: 'Обновлено:' })}
+
           {NBSP}
         </div>
 
