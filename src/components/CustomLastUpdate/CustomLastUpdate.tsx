@@ -45,11 +45,11 @@ export const CustomLastUpdate = ({
 
   return (
     <div
-      className={clsx('rounded-sm px-1.5 py-0.5 text-xs font-normal w-fit', {
-        'mb-3': type === CustomLastUpdateType.Tag,
-        'text-gray-800 italic': type === CustomLastUpdateType.Text,
+      className={clsx('rounded-sm py-0.5 text-xs font-normal w-fit', {
+        'mb-3 px-1.5': type === CustomLastUpdateType.Tag,
         'text-emerald-700 bg-green-100': isNewTag,
         'text-blue-500 bg-blue-50': isUpdateTag,
+        'text-gray-800 italic pl-0.5': type === CustomLastUpdateType.Text,
       })}
     >
       <div className="flex flex-row">
