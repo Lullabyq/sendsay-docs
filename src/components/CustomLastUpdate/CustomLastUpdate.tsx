@@ -2,6 +2,8 @@ import React from 'react';
 import { translate } from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import clsx from 'clsx';
+import { CustomFrontMatter } from '../../types';
+import { checkLastUpdateAvailability } from './utils/checkLastUpdateAvailability';
 
 const NBSP = '\u00A0';
 
@@ -13,18 +15,15 @@ export const enum CustomLastUpdateType {
 interface CustomLastUpdateProps {
   lastUpdatedAt: number;
   type: CustomLastUpdateType;
-  frontMatter: {
-    recent_article?: {
-      ignore: boolean;
-      new: boolean;
-    };
-  };
+  frontMatter: CustomFrontMatter;
+  id: string;
 }
 
 const UpdateMark = (): JSX.Element => <div className="w-2 h-2 bg-blue-600 rounded-full" />;
 const NewMark = (): JSX.Element => <div className="w-2 h-2 bg-green-600 rounded-full" />;
 
 export const CustomLastUpdate = ({
+  id = '',
   lastUpdatedAt,
   frontMatter = {},
   type = CustomLastUpdateType.Tag,
@@ -33,7 +32,7 @@ export const CustomLastUpdate = ({
 
   const isRuLocale = i18n.currentLocale === 'ru';
 
-  if (frontMatter.recent_article && frontMatter.recent_article.ignore) {
+  if (!checkLastUpdateAvailability(id, frontMatter)) {
     return null;
   }
 

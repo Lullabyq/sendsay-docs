@@ -57,6 +57,7 @@ const DocItemLayout = ({ children }: Props): JSX.Element => {
             <DocVersionBadge />
 
             <CustomLastUpdate
+              id={metadata.id}
               lastUpdatedAt={metadata.lastUpdatedAt}
               frontMatter={metadata.frontMatter}
               type={CustomLastUpdateType.Tag}
