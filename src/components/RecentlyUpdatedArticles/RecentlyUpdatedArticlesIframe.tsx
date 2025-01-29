@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useHistory } from '@docusaurus/router';
 import { RECENT_ARTICLES_CONTENT_ID, RECENT_ARTICLES_TEMP_URL } from './constants.js';
 
-const DEFAULT_IFRAME_HEIGHT = '650px';
+const DEFAULT_IFRAME_HEIGHT = '700px';
 
 export const RecentlyUpdatedArticlesIframe = () => {
   const history = useHistory();
@@ -31,6 +31,14 @@ export const RecentlyUpdatedArticlesIframe = () => {
 
     iframeRef.current?.contentWindow.document.addEventListener('redirect', handleRedirectInIframe);
   };
+
+  useEffect(() => {
+    window.addEventListener('resize', resizeIframe);
+
+    return () => {
+      window.removeEventListener('resize', resizeIframe);
+    };
+  }, [resizeIframe]);
 
   if (isError) {
     return <span>На странице произошёл сбой.</span>;
