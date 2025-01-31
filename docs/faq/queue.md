@@ -1,6 +1,10 @@
 ---
 sidebar_position: 8
 sidebar_label: 'Журнал заданий'
+recent_article:
+  new: true
+last_update:
+  date: '2025-01-31T03:24:00'
 ---
 
 import howToSetConditionsInAFilter from '/img/faq/queue/how-to-set-conditions-in-a-filter.png';

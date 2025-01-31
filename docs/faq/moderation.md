@@ -1,6 +1,10 @@
 ---
 sidebar_position: 1
 sidebar_label: 'Модерация выпусков'
+recent_article:
+  new: true
+last_update:
+  date: '2025-01-30T03:24:00'
 ---
 
 import SupportLink from '@site/src/components/SupportLink';

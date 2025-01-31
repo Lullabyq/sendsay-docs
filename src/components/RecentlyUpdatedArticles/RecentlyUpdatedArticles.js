@@ -1,11 +1,11 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import { decode } from 'html-entities';
 import { CustomLastUpdate } from '../CustomLastUpdate';
 import { CustomLastUpdateType } from '../CustomLastUpdate/CustomLastUpdate';
 import { RECENT_ARTICLES_CONTENT_ID } from './constants.js';
 import { truncateString } from './utils/truncateString';
-
-const NBSP = '\u00A0';
+import { NBSP } from '../../constants';
 
 const RecentlyUpdatedArticlesCard = ({ children, slug, index }) => {
   const handleClick = () => {
@@ -65,7 +65,7 @@ const RecentlyUpdatedArticles = ({ recentArticles }) => (
           <RecentlyUpdatedArticlesChanges frontMatter={frontMatter} />
 
           {description && frontMatter.recent_article?.new && (
-            <span className="text-gray-800 text-xs">{truncateString(description, 200)}</span>
+            <p className="text-gray-800 text-xs">{decode(truncateString(description, 200))}</p>
           )}
         </RecentlyUpdatedArticlesCard>
       ))}

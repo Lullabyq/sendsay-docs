@@ -4,8 +4,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import clsx from 'clsx';
 import { CustomFrontMatter } from '../../types';
 import { checkLastUpdateAvailability } from './utils/checkLastUpdateAvailability';
-
-const NBSP = '\u00A0';
+import { NBSP } from '../../constants';
 
 export const enum CustomLastUpdateType {
   Tag = 'tag',

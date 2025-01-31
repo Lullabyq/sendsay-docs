@@ -4,6 +4,8 @@ import { RECENT_ARTICLES_CONTENT_ID, RECENT_ARTICLES_TEMP_URL } from './constant
 
 const DEFAULT_IFRAME_HEIGHT = '700px';
 
+const getIframeHeight = (scrollHeight?: number) => (scrollHeight ? scrollHeight + 5 : undefined);
+
 export const RecentlyUpdatedArticlesIframe = () => {
   const history = useHistory();
   const iframeRef = useRef<HTMLIFrameElement>();
@@ -27,7 +29,9 @@ export const RecentlyUpdatedArticlesIframe = () => {
       RECENT_ARTICLES_CONTENT_ID
     );
 
-    iframeRef.current.style.height = `${recentArticleContentElement?.scrollHeight}px`;
+    const iframeHeight = getIframeHeight(recentArticleContentElement?.scrollHeight);
+
+    iframeRef.current.style.height = `${iframeHeight}px`;
 
     iframeRef.current?.contentWindow.document.addEventListener('redirect', handleRedirectInIframe);
   };

@@ -13,7 +13,6 @@ import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import ContentVisibility from '@theme/ContentVisibility';
 import type { Props } from '@theme/DocItem/Layout';
 import { CustomLastUpdate, CustomLastUpdateType } from '../../../components/CustomLastUpdate';
-
 import styles from './styles.module.css';
 
 /**
