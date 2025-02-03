@@ -1,5 +1,5 @@
 import { CustomFrontMatter } from '../../../types';
-import { isSidebarFolder } from '../../../utils/isSidebarFolder';
+import { isSidebarFolder, isUpdatesArticle } from '../../../utils';
 
 export const checkFeedbackAvailability = (id: string, frontMatter: CustomFrontMatter) =>
-  !isSidebarFolder(id) && !frontMatter.feedback_ignore;
+  !isSidebarFolder(id) && !isUpdatesArticle(id) && !frontMatter.feedback_ignore;

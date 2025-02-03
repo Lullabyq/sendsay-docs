@@ -1,5 +1,5 @@
 import { CustomFrontMatter } from '../../../types';
-import { isSidebarFolder } from '../../../utils/isSidebarFolder';
+import { isSidebarFolder, isUpdatesArticle } from '../../../utils';
 
 export const checkLastUpdateAvailability = (id: string, frontMatter: CustomFrontMatter) =>
-  !frontMatter.recent_article?.ignore && !isSidebarFolder(id);
+  !frontMatter.recent_article?.ignore && !isSidebarFolder(id) && !isUpdatesArticle(id);
