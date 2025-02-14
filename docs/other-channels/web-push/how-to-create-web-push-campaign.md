@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 sidebar_label: 'Как отправить веб-пуш'
-description: Веб-пуши — это сообщения от сайта в браузере. 
+description: Веб-пуши — это сообщения от сайта в браузере.
 recent_article:
   new: false
 ---
