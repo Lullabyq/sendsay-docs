@@ -1,6 +1,11 @@
 ---
 sidebar_position: 2
 sidebar_label: 'Как отправить веб-пуш'
+description: Инструкция по созданию и отправке Web Push уведомлений
+recent_article:
+  new: false
+  theses:
+    - Исправили опечатки
 ---
 
 import webpushElements from "/img/other-channels/web-push/how-to-create-web-push-campaign/webpush-elements.png";
